@@ -94,3 +94,8 @@ export function shortenToDate(longDate) {
   // Return the first part (date) and trim any extra whitespace
   return parts[0].trim();
 }
+function NameMe(first, last) {
+    this.firstName = first;
+    this.lastName = last;
+    this.name = this.firstName + ' ' + this.lastName;
+}
