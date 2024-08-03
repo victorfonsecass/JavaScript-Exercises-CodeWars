@@ -13,3 +13,84 @@
 export function all( arr, fun ){
   return arr.length === 0 ? true : arr.every(fun);
 }
+
+//Complete the function, which calculates how much you need to tip based on the total amount of the bill and the service.
+
+//You need to consider the following ratings:
+
+///Terrible: tip 0%
+//Poor: tip 5%
+///Good: tip 10%
+///Great: tip 15%
+///Excellent: tip 20%
+///The rating is case insensitive (so "great" = "GREAT"). If an unrecognised rating is received, then you need to return:
+
+///"Rating not recognised" in Javascript, Python and Ruby...
+///...or null in Java
+///...or -1 in C#
+///Because you're a nice person, you always round up the tip, regardless of the service.
+export function calculateTip(amount, rating) {
+    let tip = {
+    terrible : 0,
+    poor     : .05,
+    good     : .1,
+    great    : .15,
+    excellent: .2,
+  }[rating.toLowerCase()];
+
+  return typeof tip === 'undefined'
+    ? 'Rating not recognised'
+    : Math.ceil(amount * tip);
+}
+//An AI has infected a text with a character!!
+
+//This text is now fully mutated to this character.
+
+//If the text or the character are empty, return an empty string.
+//There will never be a case when both are empty as nothing is going on!!
+
+//Note: The character is a string of length 1 or an empty string.
+
+//Example
+//text before = "abc"
+//character   = "z"
+//text after  = "zzz"
+export function contamination(text, char){
+  // Repete o caractere 'char' pelo comprimento da string 'text'
+  return text === '' || char === ''? '' : char.repeat(text.length);
+}
+
+//Fix the Bugs (Syntax) - My First Kata
+//Overview
+//Hello, this is my first Kata so forgive me if it is of poor quality.
+
+//In this Kata you should fix/create a program that returns the following values:
+
+//false/False if either a or b (or both) are not numbers
+//a % b plus b % a if both arguments are numbers
+//You may assume the following:
+
+//If a and b are both numbers, neither of a or b will be 0.
+export function myFirstKata(a, b) {
+  if (typeof(a) !== 'number' || typeof(b) !== 'number'){
+    return false;
+  } else {
+    return (a % b) + (b % a);
+  }
+}
+
+
+
+export function Sleigh() {}
+
+Sleigh.prototype.authenticate = function(name, password) {
+  return name === "Santa Claus" && password === "Ho Ho Ho!"? true : false
+};
+
+export function shortenToDate(longDate) {
+ // Split the string at the comma
+  const parts = longDate.split(',');
+
+  // Return the first part (date) and trim any extra whitespace
+  return parts[0].trim();
+}
