@@ -99,3 +99,9 @@ function NameMe(first, last) {
     this.lastName = last;
     this.name = this.firstName + ' ' + this.lastName;
 }
+
+export function sayHello( name, city, state ) {
+  const together = name.join(' ');
+
+  return`Hello, ${together}! Welcome to ${city}, ${state}!`;
+}
