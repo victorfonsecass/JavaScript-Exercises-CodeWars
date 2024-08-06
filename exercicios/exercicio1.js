@@ -105,3 +105,8 @@ export function sayHello( name, city, state ) {
 
   return`Hello, ${together}! Welcome to ${city}, ${state}!`;
 }
+
+export function checkAlive (health) {
+  return health > 0 ? true : false;
+
+}

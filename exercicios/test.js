@@ -83,3 +83,11 @@ describe("Sample Tests", () => {
     assert.strictEqual(sayHello(['Wallace','Russel','Osbourne'],'Albany','New York'), 'Hello, Wallace Russel Osbourne! Welcome to Albany, New York!')
   });
 });
+const Test = require('@codewars/test-compat');
+
+describe("Tests", () => {
+  it("test", () => {
+    Test.assertEquals(checkAlive(5), true)
+    Test.assertEquals(checkAlive(0), false)
+  });
+});
