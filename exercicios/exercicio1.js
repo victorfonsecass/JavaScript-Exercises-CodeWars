@@ -113,3 +113,18 @@ export function checkAlive (health) {
 export function friend(friends){
   return friends.filter(a => a.length  ===  4);
 }
+export function orderFood(list) {
+  // Inicializa o objeto que armazenará a contagem de opções de comida
+  const foodCount = {};
+
+  // Itera sobre cada objeto na lista
+  list.forEach(item => {
+    // Obtém o tipo de refeição
+    const meal = item.meal;
+
+    // Atualiza a contagem para o tipo de refeição
+    foodCount[meal] = (foodCount[meal] || 0) + 1;
+  });
+
+  return foodCount;
+}
