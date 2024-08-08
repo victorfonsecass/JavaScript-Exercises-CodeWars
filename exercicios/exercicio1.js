@@ -136,3 +136,42 @@ export function getCount(str) {
   // Usamos reduce para contar as vogais
   return str.split('').reduce((count, char) => isVowel(char) ? count + 1 : count, 0);
 }
+export function boredom(staff) {
+  // Mapeamento dos departamentos para os escores de tédio
+  const departmentScores = {
+    'accounts': 1,
+    'finance': 2,
+    'canteen': 10,
+    'regulation': 3,
+    'trading': 6,
+    'change': 6,
+    'IS': 8,
+    'retail': 5,
+    'cleaning': 4,
+    'pissing about': 25
+  };
+
+  // Calcula a soma dos escores dos departamentos
+  const sum = Object.values(staff)
+    .map(department => departmentScores[department] || 0)  // Converte o departamento para o escore
+    .reduce((acc, score) => acc + score, 0);  // Soma os escores
+
+  // Retorna a mensagem baseada no total dos escores
+  return sum <= 80 ? 'kill me now' :
+         sum < 100 ? 'i can handle this' :
+         'party time!!';
+}
+
+   // 1. Obtém todos os valores dos departamentos a partir do objeto 'staff'
+  // Object.values(staff) retorna um array com os valores dos departamentos dos funcionários
+  // Exemplo: se staff = { Alice: 'canteen', Bob: 'finance' }
+  // então Object.values(staff) retorna ['canteen', 'finance']
+ // const departments = Object.values(staff);
+
+  // 2. Converte cada departamento para seu escore usando o mapeamento 'departmentScores'
+  // .map(department => departmentScores[department] || 0)
+  // Para cada valor no array 'departments':
+  // - departmentScores[department] acessa o escore associado ao departamento
+  // - Se o departamento não estiver no mapeamento (retornando undefined), || 0 garante que 0 seja usado
+  // Exemplo: para ['canteen', 'finance'] isso se tornará [10, 2]
+ //.reduce((acc, score) => acc + score, 0);
