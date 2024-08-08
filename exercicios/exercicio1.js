@@ -128,3 +128,11 @@ export function orderFood(list) {
 
   return foodCount;
 }
+
+export function getCount(str) {
+   // Definimos uma função para verificar se um caractere é uma vogal
+  const isVowel = char => 'aeiouAEIOU'.includes(char);
+
+  // Usamos reduce para contar as vogais
+  return str.split('').reduce((count, char) => isVowel(char) ? count + 1 : count, 0);
+}
