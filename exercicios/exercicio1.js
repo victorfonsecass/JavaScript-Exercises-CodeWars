@@ -199,3 +199,19 @@ return {
   [verb]: conjugatedForms
 };
 }
+
+export function smaller(nums) {
+// Use map to create an array where each element is the count of smaller elements to its right
+  return nums.map((_, index) => {
+    // Get all elements to the right of the current element
+    // index: É o índice do elemento atual que está sendo processado pelo método map.
+    // index + 1: Adicionamos 1 ao index para começar a seleção imediatamente após o elemento atual.
+    // Isso significa que queremos todos os elementos que estão à direita do elemento na posição index.
+    const rightElements = nums.slice(index + 1);
+
+    // Count how many of those elements are smaller than the current element
+    //Para retornar os números menores: Use apenas .filter para obter o array com os números que são menores.
+    //Para contar quantos são menores: Use .filter para obter o array com os números menores e depois .length para contar quantos são.
+    return rightElements.filter(num => num < nums[index]).length;
+  });
+}
