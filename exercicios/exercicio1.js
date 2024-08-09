@@ -175,3 +175,27 @@ export function boredom(staff) {
   // - Se o departamento não estiver no mapeamento (retornando undefined), || 0 garante que 0 seja usado
   // Exemplo: para ['canteen', 'finance'] isso se tornará [10, 2]
  //.reduce((acc, score) => acc + score, 0);
+export function conjugate(verb){
+   const dic = { 'ar':['o','as','a','amos', 'áis','an'],
+                'er':['o','es','e','emos', 'éis','en'],
+                'ir':['o','es','e','imos', 'ís', 'en']};
+
+  // Primeiro, vamos pegar os dois últimos caracteres do verbo para descobrir seu tipo
+const suffix = verb.slice(-2); // Por exemplo, se o verbo for 'comer', suffix será 'er'
+
+// Agora, removemos os dois últimos caracteres do verbo para obter a parte principal do verbo (radical)
+const root = verb.slice(0, -2); // Se o verbo for 'comer', root será 'com'
+
+// Usamos o sufixo que pegamos para encontrar a lista de sufixos pessoais corretos
+const personalSuffixes = dic[suffix]; // Se suffix for 'er', personalSuffixes será ['o', 'es', 'e', 'emos', 'éis', 'en']
+
+// Para cada sufixo pessoal na lista, juntamos o radical com o sufixo para criar a forma do verbo
+const conjugatedForms = personalSuffixes.map(suffix => root + suffix);
+// Se personalSuffixes for ['o', 'es', 'e', 'emos', 'éis', 'en'],
+// conjugatedForms será ['como', 'comes', 'come', 'comemos', 'coméis', 'comen']
+
+// Finalmente, criamos um objeto onde a chave é o verbo original e o valor é a lista das formas conjugadas
+return {
+  [verb]: conjugatedForms
+};
+}
